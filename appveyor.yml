@@ -1,5 +1,4 @@
 environment:
-  PNPM_VERSION: 1.23.2
   matrix:
     - nodejs_version: 4
     - nodejs_version: 6
@@ -8,6 +7,7 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm set fetch-retry-maxtimeout 180000
+  - set PNPM_VERSION=1.23.2
   - curl -L https://unpkg.com/@pnpm/self-installer | node
   # Testing whether pnpm can upgrade itself
   - pnpm i -g pnpm@next
