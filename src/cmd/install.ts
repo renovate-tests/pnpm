@@ -20,6 +20,7 @@ export default async function installCmd (
     opts.hooks = requireHooks(prefix)
   }
 
+  opts['createBackgroundService'] = true
   const store = await createStoreController(opts)
   const installOpts = Object.assign(opts, {
     store: store.path,
